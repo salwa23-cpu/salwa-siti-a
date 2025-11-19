@@ -4,41 +4,200 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CRUD Data Siswa</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #e2e8f0;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      padding: 20px;
+      margin: 0 auto;
+    }
+    header {
+      text-align: center;
+      padding: 40px 0;
+      background: rgba(56, 189, 248, 0.1);
+      border-radius: 10px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 8px rgba(56, 189, 248, 0.2);
+    }
+    h1 {
+      color: #38bdf8;
+      font-size: 2.5em;
+      margin: 0;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    }
+    .form-container {
+      background: rgba(30, 41, 59, 0.8);
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: #cbd5e1;
+      font-weight: bold;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      border: 2px solid #334155;
+      border-radius: 5px;
+      background: #1e293b;
+      color: #e2e8f0;
+      font-size: 16px;
+      transition: border-color 0.3s ease;
+    }
+    input[type="text"]:focus {
+      border-color: #38bdf8;
+      outline: none;
+    }
+    button {
+      background: linear-gradient(135deg, #38bdf8 0%, #60a5fa 100%);
+      color: #0f172a;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    button:hover {
+      background: linear-gradient(135deg, #60a5fa 0%, #93c5fd 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(56, 189, 248, 0.4);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: rgba(30, 41, 59, 0.8);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #334155;
+    }
+    th {
+      background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+      color: #38bdf8;
+      font-weight: bold;
+    }
+    tr:nth-child(even) {
+      background: rgba(51, 65, 85, 0.5);
+    }
+    tr:hover {
+      background: rgba(56, 189, 248, 0.1);
+    }
+    .action-btn {
+      background: #dc2626;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 3px;
+      cursor: pointer;
+      margin-right: 5px;
+      transition: background 0.3s ease;
+    }
+    .action-btn.edit {
+      background: #f59e0b;
+    }
+    .action-btn:hover {
+      opacity: 0.8;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      color: #94a3b8;
+      font-size: 14px;
+      border-top: 1px solid #334155;
+    }
+    /* Responsivitas */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2em;
+      }
+      table {
+        font-size: 14px;
+      }
+      th, td {
+        padding: 8px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>Data Siswa</h1>
+  <header>
+    <h1>CRUD Data Siswa</h1>
+  </header>
 
-  <br><input type="text" id="nisInput" placeholder="Masukkan NIS"></br>
-  <br><input type="text" id="namaInput" placeholder="Masukkan Nama Siswa"><br>
-  <br><input type="text" id="kelasInput" placeholder="Masukkan Kelas"></br>
-  <br><button id="addBtn">Tambah</button></br>
+  <div class="container">
+    <div class="form-container">
+      <form id="siswaForm">
+        <div class="form-group">
+          <label for="nisInput">NIS:</label>
+          <input type="text" id="nisInput" placeholder="Masukkan NIS" required>
+        </div>
+        <div class="form-group">
+          <label for="namaInput">Nama Siswa:</label>
+          <input type="text" id="namaInput" placeholder="Masukkan Nama Siswa" required>
+        </div>
+        <div class="form-group">
+          <label for="kelasInput">Kelas:</label>
+          <input type="text" id="kelasInput" placeholder="Masukkan Kelas" required>
+        </div>
+        <button type="submit" id="addBtn">Tambah Siswa</button>
+      </form>
+    </div>
 
-  <br><br>
+    <table>
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>NIS</th>
+          <th>Nama Siswa</th>
+          <th>Kelas</th>
+          <th>Aksi</th>
+        </tr>
+      </thead>
+      <tbody id="siswaTable"></tbody>
+    </table>
+  </div>
 
-  <table border="1" cellspacing="0" cellpadding="5">
-    <thead>
-      <tr>
-        <th>No</th>
-        <th>NIS</th>
-        <th>Nama Siswa</th>
-       <th>Kelas</th>
-       <th>Aksi</th>
-      </tr>
-    </thead>
-    <tbody id="siswaTable"></tbody>
-  </table>
+  <footer>
+    <p>&copy; 2023 CRUD Data Siswa. Dibuat dengan ❤️ untuk belajar IT.</p>
+  </footer>
 
-  <!-- Taruh kode JavaScript di sini -->
   <script>
-    let siswa = [];
+    let siswa = JSON.parse(localStorage.getItem('siswaData')) || [];
 
     const nisInput = document.getElementById("nisInput");
     const namaInput = document.getElementById("namaInput");
     const kelasInput = document.getElementById("kelasInput");
     const addBtn = document.getElementById("addBtn");
     const siswaTable = document.getElementById("siswaTable");
+    const siswaForm = document.getElementById("siswaForm");
 
-    addBtn.addEventListener("click", tambahSiswa);
+    // Event listener untuk form submit
+    siswaForm.addEventListener("submit", function(e) {
+      e.preventDefault();
+      tambahSiswa();
+    });
 
     function renderSiswa() {
       siswaTable.innerHTML = "";
@@ -50,12 +209,14 @@
           <td>${data.nama}</td>
           <td>${data.kelas}</td>
           <td>
-            <button onclick="editSiswa(${i})">Edit</button>
-            <button onclick="hapusSiswa(${i})">Hapus</button>
+            <button class="action-btn edit" onclick="editSiswa(${i})">Edit</button>
+            <button class="action-btn" onclick="hapusSiswa(${i})">Hapus</button>
           </td>
         `;
         siswaTable.appendChild(row);
       });
+      // Simpan ke localStorage
+      localStorage.setItem('siswaData', JSON.stringify(siswa));
     }
 
     function tambahSiswa() {
@@ -64,6 +225,11 @@
       const kelas = kelasInput.value.trim();
 
       if (nis && nama && kelas) {
+        // Cek duplikasi NIS
+        if (siswa.some(s => s.nis === nis)) {
+          alert("NIS sudah ada! Gunakan NIS yang berbeda.");
+          return;
+        }
         siswa.push({ nis, nama, kelas });
         nisInput.value = "";
         namaInput.value = "";
@@ -81,6 +247,11 @@
       const kelasBaru = prompt("Edit Kelas:", data.kelas);
 
       if (nisBaru && namaBaru && kelasBaru) {
+        // Cek duplikasi NIS kecuali untuk data yang sedang diedit
+        if (siswa.some((s, index) => s.nis === nisBaru && index !== i)) {
+          alert("NIS sudah ada! Gunakan NIS yang berbeda.");
+          return;
+        }
         siswa[i] = { nis: nisBaru, nama: namaBaru, kelas: kelasBaru };
         renderSiswa();
       } else {
@@ -89,9 +260,14 @@
     }
 
     function hapusSiswa(i) {
-      siswa.splice(i, 1);
-      renderSiswa();
+      if (confirm("Apakah Anda yakin ingin menghapus data siswa ini?")) {
+        siswa.splice(i, 1);
+        renderSiswa();
+      }
     }
+
+    // Render data saat halaman dimuat
+    renderSiswa();
   </script>
 </body>
 </html>
