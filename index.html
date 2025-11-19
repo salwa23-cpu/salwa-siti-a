@@ -1,82 +1,136 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web | Portofolio Teknik Informatika & IT</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background: #0f172a;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
             color: #e2e8f0;
             margin: 0;
             padding: 0;
+            line-height: 1.6;
         }
         .container {
             width: 90%;
+            max-width: 1200px;
             padding: 20px;
-            margin: auto;
+            margin: 0 auto;
         }
-        h1, h2 {
+        header {
             text-align: center;
+            padding: 40px 0;
+            background: rgba(56, 189, 248, 0.1);
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 8px rgba(56, 189, 248, 0.2);
+        }
+        h1 {
             color: #38bdf8;
+            font-size: 2.5em;
+            margin: 0;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        h2 {
+            color: #60a5fa;
+            font-size: 1.5em;
+            margin: 10px 0;
         }
         p {
             text-align: center;
             font-size: 18px;
+            color: #cbd5e1;
+            max-width: 600px;
+            margin: 20px auto;
         }
-        .menu ul {
+        nav.menu {
+            margin-top: 30px;
+        }
+        nav.menu ul {
             list-style: none;
             padding: 0;
-            margin-top: 30px;
+            margin: 0;
             display: grid;
-            gap: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
         }
-        .menu ul li {
-            background: #1e293b;
-            padding: 15px;
-            border-radius: 8px;
+        nav.menu ul li {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            padding: 20px;
+            border-radius: 12px;
             text-align: center;
-            transition: 0.3s;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
         }
-        .menu ul li:hover {
-            background: #334155;
+        nav.menu ul li:hover {
+            background: linear-gradient(135deg, #334155 0%, #475569 100%);
+            transform: translateY(-5px);
+            border-color: #38bdf8;
+            box-shadow: 0 6px 12px rgba(56, 189, 248, 0.4);
         }
-        .menu ul li a {
+        nav.menu ul li a {
             color: #38bdf8;
             text-decoration: none;
             font-weight: bold;
             font-size: 18px;
+            display: block;
+            transition: color 0.3s ease;
+        }
+        nav.menu ul li a:hover {
+            color: #60a5fa;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            color: #94a3b8;
+            font-size: 14px;
+            border-top: 1px solid #334155;
+        }
+        /* Responsivitas */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+            h2 {
+                font-size: 1.2em;
+            }
+            nav.menu ul {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
-
 <body>
-    <div class="container">
+    <header>
         <h1>Portofolio Teknik Informatika</h1>
         <h2>Belajar IT, Coding, dan Teknologi Modern</h2>
-
         <p>
             Selamat datang di halaman portofolio Teknik Informatika!
             Di sini tersedia kumpulan proyek, materi pembelajaran, dan referensi dunia IT.
         </p>
+    </header>
 
-        <div class="menu pilihan">
+    <div class="container">
+        <nav class="menu">
             <ul>
                 <li><a href="CRUD.html">CRUD</a></li>
-                <li><a href="coba.html">coba</a></li>
-                <li><a href="coba2.html">coba2</a></li>
-                <li><a href="formating.html">formating</a></li>
-                <li><a href="daftar.html">daftar</a></li>
-                <li><a href="elementsemantik.html">elementsemantik</a></li>
+                <li><a href="coba.html">Coba</a></li>
+                <li><a href="coba2.html">Coba2</a></li>
+                <li><a href="formating.html">Formatting</a></li>
+                <li><a href="daftar.html">Daftar</a></li>
+                <li><a href="elementsemantik.html">Element Semantik</a></li>
                 <li><a href="tabel.html">Tabel</a></li>
-                <li><a href="nyobacss.html">nyobacss</a></li>
-                
+                <li><a href="nyobacss.html">Nyoba CSS</a></li>
             </ul>
-        </div>
+        </nav>
     </div>
+
+    <footer>
+        <p>&copy; 2023 Portofolio Teknik Informatika. Dibuat dengan ❤️ untuk belajar IT.</p>
+    </footer>
 </body>
 </html>
-
-
-
-
-
