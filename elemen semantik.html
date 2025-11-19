@@ -1,32 +1,111 @@
-<html>
-	<head>
-		<tittle>Contoh Layout dengan Elemen Sementik</tittle>
-	</head>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contoh Layout dengan Elemen Semantik</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #e2e8f0;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            padding: 20px;
+            margin: 0 auto;
+        }
+        header {
+            background: rgba(56, 189, 248, 0.1);
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(56, 189, 248, 0.2);
+        }
+        h1 {
+            color: #38bdf8;
+            margin: 0;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        nav {
+            background: rgba(30, 41, 59, 0.8);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        nav a {
+            color: #38bdf8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: #60a5fa;
+            text-decoration: underline;
+        }
+        article {
+            background: rgba(30, 41, 59, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        article h1 {
+            color: #60a5fa;
+            border-bottom: 2px solid #38bdf8;
+            padding-bottom: 10px;
+        }
+        article p {
+            color: #cbd5e1;
+            font-size: 16px;
+        }
+        footer {
+            background: rgba(30, 41, 59, 0.8);
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            color: #94a3b8;
+        }
+        /* Responsivitas */
+        @media (max-width: 768px) {
+            nav a {
+                display: block;
+                margin: 10px 0;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Belajar Elemen Semantik di HTML</h1>
+        </header>
 
-<body style="background-color white:">
+        <nav>
+            <a href="#">Home</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
 
-	<header style="background-color white;">
-	 <h1>Belajar Elemen Semantik di HTML</h1>
-	</header>
+        <article id="about">
+            <h1>Tutorial Semantik Elemen untuk Pemula</h1>
+            <p>Semantik elemen adalah elemen yang memiliki makna dan tujuan. Tujuannya agar kode HTML mudah dibaca dan tidak ada penyalahgunaan tag. Elemen semantik bagus untuk SEO dan juga dapat meningkatkan aksesibilitas.</p>
+        </article>
 
-	<nav>
-	 <a href="#"Home</a>
-	 <a href="About</a>
-	 <a href="Contant</a>
-	</nav>
-
-<article style="background-color:white;"
- <h1>tutorial semantik elemen untuk pemula</h1>
- <p>Semantik elemen adalah eleman yang memiliki makna dan tujuan.
-    Tujuannya agar kode HTML mudah dibaca dan tidak ada penyalahgunaan tag.
-    Elemen semantik bagus untuk SEO dan juga dapat meningkatkan accessbility.
- </p>
-</article>
-
-<footer style="background-color: white;">
- copyight &copy; 2020 by Petani Kode
-</footer>
-
-<?body>
-	
+        <footer>
+            <p>Copyright &copy; 2023 by Petani Kode</p>
+        </footer>
+    </div>
+</body>
 </html>
